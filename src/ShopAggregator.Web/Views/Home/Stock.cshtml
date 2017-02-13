@@ -1,0 +1,31 @@
+@model ShopAggregator.Web.Models.Stock
+
+@{
+    ViewData["Title"] = "Stock";
+}
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Shop.Name) products</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            @foreach (var item in Model.Products) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+            </tr>
+            }
+        </table>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
